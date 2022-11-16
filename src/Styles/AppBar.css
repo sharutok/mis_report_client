@@ -1,0 +1,18 @@
+.button-download-ledger{
+    background: linear-gradient(142deg, rgba(221, 110, 66, 1) 2%, rgba(79, 109, 122, 1) 55%);
+}
+
+.button-download-ledger {
+    border: 10px solid;
+    border-image-slice: 1;
+    border-width: 5px;
+}
+.btn-download{
+border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
+}
+
+.header{
+    font-family: 'Secular One', sans-serif;
+    color: rgb(90, 90, 90);
+    font-weight: bolder;
+}
