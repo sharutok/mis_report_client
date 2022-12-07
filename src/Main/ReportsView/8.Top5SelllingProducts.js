@@ -22,6 +22,24 @@ export default function Top5SelllingProducts() {
     const [val, setVal] = useState([])
     const [key, setKey] = useState([])
 
+    function payables(value) {
+        var val = Math.abs(value)
+        //1Cr
+        if (val >= 10000000) {
+            val = (val / 100000).toFixed(2);
+        }
+        //Lac
+        else if (val >= 100000) {
+            val = (val / 100000).toFixed(2);
+        }
+        //K
+        else if (val >= 10000) {
+            val = (val / 10000).toFixed(2);
+        }
+        return Number(val)
+    }
+
+
     const getData = async () => {
         const data = await axios.post(httpApi.top5SP, { cust_id, date_time_string })
         const { consumables, equipment } = data.data.data
@@ -30,21 +48,21 @@ export default function Top5SelllingProducts() {
         let _x = []
         let _y = []
         consumables.map(x => {
-            _c.push(Math.round(x[1]))
+            _c.push((x[1]))
         })
         equipment.map(x => {
-            _e.push(Math.round(x[1]))
+            _e.push((x[1]))
         })
         setCons(_c)
         setEqp(_e)
 
         consumables.map(x => {
             _y.push((x[0]))
-            _x.push(Math.round(x[1]))
+            _x.push((x[1]))
         })
         equipment.map(x => {
             _y.push((x[0]))
-            _x.push(Math.round(x[1]))
+            _x.push((x[1]))
         })
         setKey(_x)
         setVal(_y)
@@ -67,7 +85,7 @@ export default function Top5SelllingProducts() {
                 callbacks: {
                     label: function (data) {
                         let so = key.indexOf(data.raw)
-                        return `${val[so]} ${Math.round(data.raw / 1000000)} Lakhs`
+                        return `${val[so]}  ${payables((data.raw))} Lakhs`
                     }
                 }
             },
@@ -84,7 +102,7 @@ export default function Top5SelllingProducts() {
                 position: 'left',
                 ticks: {
                     callback: function (value, index) {
-                        return (value / 1000000)
+                        return (value / 100000)
                     }
                 },
             },

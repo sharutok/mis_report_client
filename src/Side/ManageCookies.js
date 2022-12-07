@@ -1,8 +1,10 @@
 import { useContext } from 'react'
 import Cookies from "universal-cookie";
 const cookies = new Cookies()
-
-let cookieName = ["di", "ate",]
+// di -> id
+// ate -> date
+// pot->otp
+let cookieName = ["di", "ate", 'pot']
 let flag = []
 
 export const setCookies = (cookieValues) => {
@@ -15,7 +17,7 @@ export const getCookies = () => {
     cookieName.map(x => {
         flag.push(cookies.get(x))
     })
-    return (flag)
+    return flag
 }
 
 export const deleteCookies = () => {
@@ -25,7 +27,7 @@ export const deleteCookies = () => {
 }
 
 function CookiesS() {
-    const { cook, setCook } = useContext(AppContext)
-    setCook({ di: "", ate: "" })
+    // const { cook, setCook } = useContext(AppContext)
+    // setCook({ di: "", ate: "", pot: "" })
 }
 export default CookiesS

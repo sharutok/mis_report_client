@@ -9,7 +9,9 @@ export const httpApi = {
     productMixData: `${backendHTTP}/api/product-mix-data`,
     top5SP: `${backendHTTP}/api/top-selling`,
     payables: `${backendHTTP}/api/payables`,
-    distributorOrigin: `${backendHTTP}/api/distributor-origin`
+    distributorOrigin: `${backendHTTP}/api/distributor-origin`,
+    otp_sender: `${backendHTTP}/api/get/otp`,
+    otp_verify: `${backendHTTP}/api/verify/otp`,
 
 };
 

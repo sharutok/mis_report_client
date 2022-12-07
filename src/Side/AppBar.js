@@ -9,12 +9,16 @@ import { useParams } from 'react-router-dom';
 import '../Styles/AppBar.css'
 import moment from 'moment'
 export default function BarApp() {
-
+    const { date_time_string } = useParams()
+    const convertStringToDate = new Date(Number(date_time_string)).toISOString().substring(0, 10)
     const a = 'ADMIS_LEDGER'
-    const b = moment().subtract(1, 'months').format('MMM').toUpperCase()
-    const c = moment().format('YY')
-    const d = moment().add(1, 'years').format('YY')
+    const b = moment(convertStringToDate).format('MMM').toUpperCase()
+    const c = moment(convertStringToDate).format('YY')
+    const d = moment(convertStringToDate).add(1, 'years').format('YY')
     const val = `${a}_${b}-${c}-${d}_`
+    // console.log(a + b + c + d);
+    // const val = `ADMIS_LEDGER_OCT-22-23_`
+
 
 
     const { cust_id } = useParams()

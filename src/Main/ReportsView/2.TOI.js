@@ -13,6 +13,7 @@ import { ContextHelper } from '../HomePage';
 import moment from 'moment';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
+
 export default function TOI() {
     const { salesDataForQTD, qtrMonths } = useContext(ContextHelper)
     // console.log(salesDataForQTD, qtrMonths);
@@ -26,8 +27,6 @@ export default function TOI() {
         Legend
     );
     const dataPoints = [0, "75", "125", "250", 475]
-    // const multiple15 = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100]
-    // 75,125,250,475
 
     const labels = ["Month wise sales in the Quarter"]
     const datasetz = [{

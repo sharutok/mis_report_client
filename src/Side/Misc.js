@@ -21,3 +21,8 @@ export const growthIcon = (v) => {
 
 export const y1 = `FY ${moment().subtract(1, 'years').calendar().substring(6, 10)} - ${moment().format('YYYY')}`;
 export const y2 = `FY ${moment().format('YYYY')} - ${moment().add(1, 'years').calendar().substring(6, 10)}`;
+
+export const convertStringToDate = (date_time_string) => {
+    return new Date(Number(date_time_string)).toISOString().substring(0, 10)
+
+}

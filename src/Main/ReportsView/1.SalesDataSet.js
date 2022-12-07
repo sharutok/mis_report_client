@@ -8,7 +8,7 @@ import { growthFormula, growthIcon, y1, y2 } from '../../Side/Misc';
 import { IconInfoCircle } from '@tabler/icons'
 import { useParams } from 'react-router-dom';
 import '../../Styles/SalesDataSet.css'
-
+import { convertStringToDate } from '../../Side/Misc'
 
 export default function SalesDataSet() {
     const { cust_id, date_time_string } = useParams()
@@ -89,7 +89,7 @@ export default function SalesDataSet() {
                     </thead>
                     <tbody>
                         <tr>
-                            <td className='growth-text'>{moment().subtract(1, 'months').format('MMMM')}</td>
+                            <td className='growth-text'>{moment(convertStringToDate(date_time_string)).format('MMMM')}</td>
                             {salesDataForCurrMon.map((x, i) => {
                                 return (<td key={i}>{Math.round(x)}</td>)
                             })}

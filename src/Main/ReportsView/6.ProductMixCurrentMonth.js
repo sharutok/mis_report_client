@@ -6,13 +6,16 @@ import {
     Tooltip,
     Legend,
 } from 'chart.js';
+import { useParams } from 'react-router-dom';
 import { Doughnut } from 'react-chartjs-2';
 import moment from 'moment';
+import { convertStringToDate } from '../../Side/Misc'
 import { ContextHelper } from '../HomePage'
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend);
 
 export default function ProductMixCurrentMonth() {
+    const { date_time_string } = useParams()
     const { productMixCurrMon } = useContext(ContextHelper)
     const total = productMixCurrMon.slice(productMixCurrMon.length - 1)
     const dataSet = [...[...productMixCurrMon.slice(0, -1)].map(x => { return ((x * 100) / total) })]
@@ -39,10 +42,10 @@ export default function ProductMixCurrentMonth() {
                 color: '#343a40',
                 font: {
                     weight: 'bold',
-                    size: 20,
+                    size: 15,
                 },
                 formatter: (val) => {
-                    return `${Math.round(String(val).substring(0, 5))}%`
+                    return `${(String(val).substring(0, 5))}%`
                 },
                 padding: 6
             },
@@ -58,13 +61,13 @@ export default function ProductMixCurrentMonth() {
                 },
                 callbacks: {
                     label: function (data) {
-                        return `${data.label}-: ${Math.round(String(data.raw).substring(0, 5))} %`
+                        return `${data.label}-: ${(String(data.raw).substring(0, 5))} %`
                     }
                 }
             },
             title: {
                 display: true,
-                text: `Product Mix - ${moment().subtract(1, 'months').format('MMMM')}`,
+                text: `Product Mix - ${moment(convertStringToDate(date_time_string)).format('MMMM')}`,
                 font: {
                     size: 20
                 }

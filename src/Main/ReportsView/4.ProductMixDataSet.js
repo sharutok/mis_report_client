@@ -4,6 +4,7 @@ import { httpApi } from '../../Side/Http'
 import { ContextHelper } from '../HomePage'
 import moment from 'moment'
 import { useParams } from 'react-router-dom'
+import { convertStringToDate } from '../../Side/Misc'
 
 export default function ProductMixDataSet() {
     const { cust_id, date_time_string } = useParams()
@@ -68,7 +69,7 @@ export default function ProductMixDataSet() {
                     </thead>
                     <tbody>
                         <tr>
-                            <td className='growth-text'>{moment().subtract(1, 'months').format('MMMM')}</td>
+                            <td className='growth-text'>{moment(convertStringToDate(date_time_string)).format('MMMM')}</td>
                             {productMixCurrMon.map((x, i) => {
                                 return (
                                     <td key={i} >{Math.round(Number(x))}</td>

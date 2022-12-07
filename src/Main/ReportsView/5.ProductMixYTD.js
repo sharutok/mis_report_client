@@ -7,11 +7,8 @@ ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend);
 
 export default function ProductMixYTD() {
     const { productMixYTD, productMixDiffMonth, setProductMixDiffMonth } = useContext(ContextHelper)
-    console.log(productMixYTD);
     const total = productMixYTD.reduce((a, b) => { return (a + b) }, 0)
-    console.log(total);
     const datas = [...productMixYTD.map(x => { return ((x * 100) / total) })]
-    console.log(datas);
     const data = {
         labels: ['Electrodes', 'W&F', 'Eqpt. & SGP'],
         datasets: [
@@ -33,14 +30,14 @@ export default function ProductMixYTD() {
             datalabels: {
                 // backgroundColor: 'white',
                 borderRadius: 4,
-                fontSize: 50,
+                fontSize: 40,
                 color: '#343a40',
                 font: {
-                    weight: 'bolder',
-                    size: 20,
+                    weight: 'bold',
+                    size: 15,
                 },
                 formatter: (val) => {
-                    return `${Math.round(String(val).substring(0, 5))}%`
+                    return `${(String(val).substring(0, 5))}%`
                 },
                 padding: 6
             },
