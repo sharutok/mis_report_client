@@ -70,7 +70,7 @@ export default function TOI() {
             },
             title: {
                 display: true,
-                text: `Turn Over Incentive [TOI]  Achivement* `,
+                text: `Turn Over Incentive [TOI]  Achivement*`,
                 font: {
                     size: 20
                 }
@@ -107,7 +107,7 @@ export default function TOI() {
                 },
                 title: {
                     display: true,
-                    text: 'TOI Slab in lakhs'
+                    text: 'TOI Slab in ₹ lakhs'
                 },
                 grid: {
                     drawBorder: false,
@@ -125,7 +125,7 @@ export default function TOI() {
         <div >
             <Bar options={options} plugins={[ChartDataLabels]}
                 data={data} />
-            <div style={{ textAlign: "right", color: "grey", marginTop: "1rem" }}>* TOI will be calculated on net value excluding DAP charges</div>
+            {/* <div style={{ textAlign: "right", color: "grey", marginTop: "1rem" }}>* TOI will be calculated on net value excluding DAP charges</div> */}
         </div >
     )
 }

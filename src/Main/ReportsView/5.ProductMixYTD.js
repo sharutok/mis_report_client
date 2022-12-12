@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, } from 'react'
 import { Chart as ChartJS, RadialLinearScale, ArcElement, Tooltip, Legend, } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { ContextHelper } from '../HomePage'
@@ -28,13 +28,12 @@ export default function ProductMixYTD() {
         responsive: true,
         plugins: {
             datalabels: {
-                // backgroundColor: 'white',
                 borderRadius: 4,
                 fontSize: 40,
                 color: '#343a40',
                 font: {
                     weight: 'bold',
-                    size: 15,
+                    size: 20,
                 },
                 formatter: (val) => {
                     return `${(String(val).substring(0, 5))}%`
@@ -59,7 +58,7 @@ export default function ProductMixYTD() {
             },
             title: {
                 display: true,
-                text: `Product Mix - YTD`,
+                text: `Product Mix - YTD*`,
                 font: {
                     size: 20
                 }

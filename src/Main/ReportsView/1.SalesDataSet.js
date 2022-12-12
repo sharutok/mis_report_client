@@ -1,11 +1,11 @@
 import React, { useEffect, useContext, useState } from 'react'
 import moment from 'moment'
-import { useQuery } from '@tanstack/react-query'
+// import { useQuery } from '@tanstack/react-query'
 import { httpApi } from '../../Side/Http'
 import axios from "axios";
 import { ContextHelper } from '../HomePage';
 import { growthFormula, growthIcon, y1, y2 } from '../../Side/Misc';
-import { IconInfoCircle } from '@tabler/icons'
+// import { IconInfoCircle } from '@tabler/icons'
 import { useParams } from 'react-router-dom';
 import '../../Styles/SalesDataSet.css'
 import { convertStringToDate } from '../../Side/Misc'
@@ -58,16 +58,12 @@ export default function SalesDataSet() {
         setMonthDiff(month_difference)
     }
 
-
     // const { data, isLoading } = useQuery(['sales-data'], async () => { return await axios.post(httpApi.salesData, { cust_id, date_time_string }) })
-    // console.log(data);
-
-
+    // console.log(data);   
 
     useEffect(() => {
         datas()
     }, [1])
-
 
     // if (isLoading) {
     //     return <p>Loading....</p>
@@ -75,7 +71,7 @@ export default function SalesDataSet() {
 
     return (
         <div>
-            <h4>Sales Data (in Lakhs)</h4>
+            <h4>Sales Data (in ₹ Lakhs  )*</h4>
             <div>
                 <table>
                     <thead>
@@ -124,6 +120,4 @@ export default function SalesDataSet() {
             </div>
         </div >
     )
-}
-//
-// 2022-2023 salesDataForCurrMon[1] , 2021-2022 salesDataForCurrMon[0]
+}   

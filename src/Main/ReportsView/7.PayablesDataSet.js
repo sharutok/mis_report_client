@@ -60,7 +60,7 @@ export default function PayablesDataSet() {
     let thead = ['Opening Balance', 'Closing Balance']
     return (
         <div>
-            <h4>Payables (in Lakhs)</h4>
+            <h4>Payables (in ₹ Lakhs  )*</h4>
             <table>
                 <thead>
                     <tr>

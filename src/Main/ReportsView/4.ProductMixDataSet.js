@@ -54,7 +54,7 @@ export default function ProductMixDataSet() {
 
     return (
         <div>
-            <h4>Product Mix (in Lakhs)</h4>
+            <h4>Product Mix (in ₹ Lakhs  )*</h4>
             <div>
                 <table>
                     <thead>

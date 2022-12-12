@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { Button, Stack, Box, TextField } from '@mui/material';
+import { Button, Box, TextField, Stack } from '@mui/material';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
@@ -9,7 +9,7 @@ import { IconDeviceMobileMessage } from '@tabler/icons'
 import axios from 'axios';
 import { httpApi } from './Http';
 import { useParams } from 'react-router-dom';
-import { setCookies, getCookies } from '../Side/ManageCookies'
+import { setCookies } from '../Side/ManageCookies'
 import bcrypt from 'bcryptjs'
 import { ContextHelper } from '../Main/HomePage'
 import Cookies from "universal-cookie";
@@ -24,7 +24,7 @@ export default function OTPDialogBox() {
         state: false,
         mess: ""
     })
-
+    const [mobilNo, setMobilNo] = useState("")
 
     function hash() {
         const _hash_cust_id = bcrypt.hashSync(cust_id, salt)
@@ -47,7 +47,9 @@ export default function OTPDialogBox() {
             hash()
             if (compareHash()) {
                 try {
-                    await axios.post(httpApi.otp_sender, { cust_id, cust_verified: true })
+                    const data = await axios.post(httpApi.otp_sender, { cust_id, cust_verified: true })
+                    setMobilNo(data.data.mobile_no)
+
                 } catch (error) {
                     console.log("error", "👺");
                 }
@@ -78,7 +80,7 @@ export default function OTPDialogBox() {
             setOpen(false);
             setError({
                 state: false,
-                mess: data.data.mess
+                mess: ""
             })
             window.location.reload()
         }
@@ -87,6 +89,12 @@ export default function OTPDialogBox() {
                 state: true,
                 mess: data.data.mess
             })
+            setTimeout(() => {
+                setError({
+                    state: false,
+                    mess: ""
+                })
+            }, 2500)
         }
     }
 
@@ -102,20 +110,26 @@ export default function OTPDialogBox() {
                 aria-describedby="alert-dialog-description"
             >
                 <DialogTitle id="alert-dialog-title">
-                    {"Dear Distributor"}
+                    {"Dear Distributor,"}
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">
                         OTP has been sent to your Mobile Number
-                        <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-                            <IconDeviceMobileMessage size={30} sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
-                            <TextField error={error.state} helperText={error.mess}
-                                size='small' sx={{ ml: 2 }} id="input-with-sx" onChange={handleOnChange} label="OTP" name="otp" variant="standard" />
-                        </Box>
+                        <h4 style={{ fontWeight: "bold", margin: "1rem" }}>
+
+                            +91 {mobilNo}
+                        </h4>
+                        <Stack justifyContent={"center"}>
+                            <div style={{ margin: "0 auto" }}>
+                                <IconDeviceMobileMessage size={60} sx={{ color: 'action.active' }} />
+                                <TextField error={error.state} helperText={error.mess} sx={{ width: 90 }} inputProps={{ style: { textAlign: 'center', fontSize: "2rem", } }}
+                                    size='small' id="input-with-sx" onChange={handleOnChange} autoFocus={true} name="otp" variant="standard" />
+                            </div>
+                        </Stack>
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleOnSubmit}>Submit OTP</Button>
+                    <Button style={{ color: "white", background: "grey" }} variant="contained" onClick={handleOnSubmit}>Submit OTP !</Button>
                 </DialogActions>
             </Dialog>
         </div>

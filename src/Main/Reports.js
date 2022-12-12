@@ -52,7 +52,7 @@ export default function Reports() {
             </div >
             <div style={{ padding: "1rem", }}>
                 <div className='infos infos-btn' >
-                    <h3 ><a style={{ color: "red" }} target="_blank" href="https://www.adorwelding.com/">www.adorwelding.com</a></h3>
+                    <h3><a style={{ color: "red" }} target="_blank" href="https://www.adorwelding.com/">www.adorwelding.com</a></h3>
                 </div>
             </div>
         </>

@@ -95,7 +95,7 @@ export default function Top5SelllingProducts() {
 
                 title: {
                     display: true,
-                    text: 'Sales in Lakhs'
+                    text: 'Sales in ₹ Lakhs  '
                 },
                 type: 'linear',
                 display: true,
@@ -134,12 +134,10 @@ export default function Top5SelllingProducts() {
     return (
         <>
             <div>
-                <h4>Top 5 Selling Products</h4>
+                <h4>Top 5 Selling Products*</h4>
                 <Bar
                     options={options} data={data} />
             </div>
         </>
     )
 }
-
-

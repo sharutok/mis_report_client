@@ -59,7 +59,7 @@ export default function Past12MonthSales() {
             },
             title: {
                 display: true,
-                text: 'Past 12 month Sales',
+                text: 'Past 12 Month Sales*',
                 font: {
                     size: 20
                 }
@@ -86,7 +86,7 @@ export default function Past12MonthSales() {
                 },
                 title: {
                     display: true,
-                    text: 'Sales in Lakhs'
+                    text: 'Sales in ₹ Lakhs  '
                 },
                 type: 'linear',
                 display: true,

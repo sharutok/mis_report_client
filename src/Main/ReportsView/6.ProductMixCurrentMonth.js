@@ -42,7 +42,7 @@ export default function ProductMixCurrentMonth() {
                 color: '#343a40',
                 font: {
                     weight: 'bold',
-                    size: 15,
+                    size: 20,
                 },
                 formatter: (val) => {
                     return `${(String(val).substring(0, 5))}%`
@@ -67,7 +67,7 @@ export default function ProductMixCurrentMonth() {
             },
             title: {
                 display: true,
-                text: `Product Mix - ${moment(convertStringToDate(date_time_string)).format('MMMM')}`,
+                text: `Product Mix - ${moment(convertStringToDate(date_time_string)).format('MMMM')}*`,
                 font: {
                     size: 20
                 }

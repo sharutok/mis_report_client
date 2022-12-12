@@ -1,4 +1,3 @@
-import { Stack } from '@mui/material'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
@@ -26,10 +25,12 @@ function UserInfo() {
                     <h3>Distributor Name: <span>{user.name}</span></h3>
                     <h3>Code: <span>{user.id}</span></h3>
                 </div>
-                {/* <h3>For The Month: {new Date(Number(date_time_string)).toLocaleDateString('IN')}</h3> */}
-                <h3>For The Month :  {moment(new Date(Number(date_time_string)).toLocaleDateString()).format("MMMM YYYY")}</h3>
-
+                <div>
+                    <h3>For The Month :  {moment(new Date(Number(date_time_string)).toLocaleDateString()).format("MMMM YYYY")}</h3>
+                    <h5 style={{ textAlign: "right", fontStyle: "italic", fontSize: "1rem" }}>* All values are including DAP</h5>
+                </div>
             </div>
+
         </div>
     )
 }

@@ -1,6 +1,8 @@
 
-const backendURL = "http://localhost";
-const backendPORT = "7000";
+
+
+const backendURL = window.location.port === "3000" ? "http://localhost" : "http://14.143.203.75:";
+const backendPORT = window.location.port === "3000" ? "7000" : "3003";
 
 const backendHTTP = `${backendURL}:${backendPORT}`;
 
