@@ -27,7 +27,7 @@ function UserInfo() {
                 </div>
                 <div>
                     <h3>For The Month :  {moment(new Date(Number(date_time_string)).toLocaleDateString()).format("MMMM YYYY")}</h3>
-                    <h5 style={{ textAlign: "right", fontStyle: "italic", fontSize: "1rem" }}>* All values are including DAP</h5>
+                    <h5 style={{ textAlign: "right", fontStyle: "italic", fontSize: "1rem" }}>* All values shown are including DAP</h5>
                 </div>
             </div>
 

@@ -5,7 +5,6 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { IconDeviceMobileMessage } from '@tabler/icons'
 import axios from 'axios';
 import { httpApi } from './Http';
 import { useParams } from 'react-router-dom';
@@ -110,27 +109,31 @@ export default function OTPDialogBox() {
                 aria-describedby="alert-dialog-description"
             >
                 <DialogTitle id="alert-dialog-title">
-                    {"Dear Distributor,"}
+
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">
-                        OTP has been sent to your Mobile Number
-                        <h4 style={{ fontWeight: "bold", margin: "1rem" }}>
-
-                            +91 {mobilNo}
+                        <h4 style={{ fontWeight: "lighter", margin: "1rem" }}>
+                            Dear Distributor, Please enter the One Time Password to verify your account
+                        </h4>
+                        <h4 style={{ fontWeight: "lighter", color: "grey" }}>
+                            A OTP is sent to +91 {mobilNo}
                         </h4>
                         <Stack justifyContent={"center"}>
                             <div style={{ margin: "0 auto" }}>
-                                <IconDeviceMobileMessage size={60} sx={{ color: 'action.active' }} />
-                                <TextField error={error.state} helperText={error.mess} sx={{ width: 90 }} inputProps={{ style: { textAlign: 'center', fontSize: "2rem", } }}
+                                <TextField error={error.state} helperText={error.mess} sx={{ width: 90 }} inputProps={{
+                                    style: { textAlign: 'center', fontSize: "2rem", },
+                                }}
                                     size='small' id="input-with-sx" onChange={handleOnChange} autoFocus={true} name="otp" variant="standard" />
                             </div>
                         </Stack>
                     </DialogContentText>
                 </DialogContent>
-                <DialogActions>
-                    <Button style={{ color: "white", background: "grey" }} variant="contained" onClick={handleOnSubmit}>Submit OTP !</Button>
-                </DialogActions>
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                    <DialogActions>
+                        <Button style={{ color: "white", background: "grey", }} variant="contained" onClick={handleOnSubmit}>Submit OTP !</Button>
+                    </DialogActions>
+                </div>
             </Dialog>
         </div>
     );
