@@ -8,6 +8,7 @@ import ProductMixCurrentMonth from './ReportsView/6.ProductMixCurrentMonth'
 import PayablesDataSet from './ReportsView/7.PayablesDataSet'
 import '../Styles/Reports.css'
 import Top5SellingProducts from './ReportsView/8.Top5SelllingProducts'
+import HoverOn from '../Side/HoverOn'
 
 export default function Reports() {
     return (
@@ -15,13 +16,17 @@ export default function Reports() {
             <div className='main-view'>
                 <div className='reports-view'>
                     <div className='div1'>
-                        <div className="comp1">
-                            <SalesDataSet />
+                        <div>
+                            <div className="comp1">
+                                <SalesDataSet />
+                            </div>
                         </div>
                         <div className="comp1">
+                            <HoverOn />
                             <TOI />
                         </div>
                         <div className="comp1">
+                            <HoverOn />
                             <Past12MonthSales />
                         </div>
                     </div>
@@ -29,9 +34,11 @@ export default function Reports() {
                 <div className='div2'>
                     <div className='div3'>
                         <div className="comp1">
+                            <HoverOn />
                             <ProductMixCurrentMonth />
                         </div>
                         <div className="comp1">
+                            <HoverOn />
                             <ProductMixYTD />
                         </div>
                     </div>
@@ -45,6 +52,7 @@ export default function Reports() {
                     </div>
                     <div className='div5'>
                         <div className="comp1">
+                            <HoverOn />
                             <Top5SellingProducts />
                         </div>
                     </div>

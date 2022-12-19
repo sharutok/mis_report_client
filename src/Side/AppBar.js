@@ -32,7 +32,7 @@ export default function BarApp() {
                     <Typography className='header' variant="h5" component="div" sx={{ flexGrow: 1, mt: 1 }}>
                         MIS REPORT - Distributor Dashboard
                     </Typography>
-                    <a
+                    {/* <a
                         style={{ textDecoration: "none" }}
                         className="Download"
                         target="_blank"
@@ -41,7 +41,7 @@ export default function BarApp() {
                         download
                     >
                         <Button className='button-download-ledger btn-download' endIcon={<IconDownload />} variant="contained">Download Ledger</Button>
-                    </a>
+                    </a> */}
                 </Toolbar>
             </AppBar>
         </Box></div>

@@ -8,12 +8,13 @@ import {
     Tooltip,
     Legend,
 } from 'chart.js';
+import { convertStringToDate } from '../../Side/Misc'
+import moment from 'moment';
 import { Bar } from 'react-chartjs-2';
 import axios from 'axios';
 import { httpApi } from '../../Side/Http';
 import { useParams } from 'react-router-dom';
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
-
 
 export default function Top5SelllingProducts() {
     const { cust_id, date_time_string } = useParams()
@@ -85,7 +86,7 @@ export default function Top5SelllingProducts() {
                 callbacks: {
                     label: function (data) {
                         let so = key.indexOf(data.raw)
-                        return `${val[so]}  ${payables((data.raw))} Lakhs`
+                        return `${val[so]}  ${payables(Math.round(data.raw))} Lakhs`
                     }
                 }
             },
@@ -102,7 +103,7 @@ export default function Top5SelllingProducts() {
                 position: 'left',
                 ticks: {
                     callback: function (value, index) {
-                        return (value / 100000)
+                        return value
                     }
                 },
             },
@@ -134,7 +135,7 @@ export default function Top5SelllingProducts() {
     return (
         <>
             <div>
-                <h4>Top 5 Selling Products*</h4>
+                <h4>Top 5 Selling Products - {moment(convertStringToDate(date_time_string)).format('MMMM')}* </h4>
                 <Bar
                     options={options} data={data} />
             </div>

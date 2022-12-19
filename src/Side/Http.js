@@ -1,8 +1,11 @@
 
 
 
-const backendURL = window.location.port === "3000" ? "http://localhost" : "http://14.143.203.75:";
-const backendPORT = window.location.port === "3000" ? "7000" : "3003";
+const backendURL = window.location.port === "3000" ?
+    // "http://localhost" :
+    "http://localhost" :
+    "http://14.143.203.75";
+const backendPORT = window.location.port === "3000" ? "7000" : "3030";
 
 const backendHTTP = `${backendURL}:${backendPORT}`;
 
@@ -14,6 +17,8 @@ export const httpApi = {
     distributorOrigin: `${backendHTTP}/api/distributor-origin`,
     otp_sender: `${backendHTTP}/api/get/otp`,
     otp_verify: `${backendHTTP}/api/verify/otp`,
-
 };
+
+
+
 

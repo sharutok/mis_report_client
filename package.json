@@ -32,7 +32,7 @@
   "scripts": {
     "start": "SET PORT= && react-scripts start",
     "start:dev": "SET PORT=3000 && react-scripts start",
-    "start:prod": "SET PORT=3111 && react-scripts start",
+    "start:prod": "SET PORT=3030 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

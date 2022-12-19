@@ -6,7 +6,14 @@ import moment from 'moment';
 export const growthFormula = (a, b) => {
 
     const diff = a - b
+    if (!b) {
+        return Math.round(a)
+    }
+    if (!a) {
+        return Math.round(b)
+    }
     return Math.round(((diff / (b)) * 100))
+
 }
 
 export const growthIcon = (v) => {

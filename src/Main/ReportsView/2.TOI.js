@@ -42,7 +42,7 @@ export default function TOI() {
         backgroundColor: '#e8dab2',
         barThickness,
     },
-    salesDataForQTD.slice((1, salesDataForQTD.length / 2))[1] && {
+    salesDataForQTD.slice((1, salesDataForQTD.length / 2))[2] && {
         label: moment().month(qtrMonths[2] - 1).format("MMM"),
         data: salesDataForQTD.slice((1, salesDataForQTD.length / 2))[2] && [salesDataForQTD.slice((1, salesDataForQTD.length / 2))[2]],
         backgroundColor: '#4f6d7a',
@@ -123,6 +123,7 @@ export default function TOI() {
     };
     return (
         <div >
+
             <Bar options={options} plugins={[ChartDataLabels]}
                 data={data} />
             {/* <div style={{ textAlign: "right", color: "grey", marginTop: "1rem" }}>* TOI will be calculated on net value excluding DAP charges</div> */}

@@ -36,7 +36,7 @@ export default function ProductMixYTD() {
                     size: 20,
                 },
                 formatter: (val) => {
-                    return `${(String(val).substring(0, 5))}%`
+                    return `${(String(val).substring(0, 4))}%`
                 },
                 padding: 6
             },
@@ -52,7 +52,7 @@ export default function ProductMixYTD() {
                 },
                 callbacks: {
                     label: function (data) {
-                        return `${data.label}-: ${String(data.raw).substring(0, 5)} %`
+                        return `${data.label}-: ${String(data.raw).substring(0, 4)} %`
                     }
                 }
             },

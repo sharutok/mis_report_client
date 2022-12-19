@@ -1,0 +1,69 @@
+
+/* .atn>h4{
+    width: fit-content;
+    border-radius: 10px;
+    margin-top: -0.5rem;
+    padding: 0;
+    font-size: smaller;
+    font-style: italic;
+    color: red;
+} */
+
+
+.atn>h4 {
+    position: relative;
+    
+    font-size: smaller;
+    color: white;
+    display: table;
+    cursor: pointer;
+    transition: .6s;
+
+    display: inline-block;
+        padding-bottom: 2px;
+        background-image: linear-gradient(rgb(237, 28, 26) 0 0);
+        background-position: 0 100%;
+        background-size: 0% 2px;
+        background-repeat: no-repeat;
+        transition:
+            background-size 0.6s,
+            background-position 0s 0.6s;
+
+}
+
+.atn>h4:before,
+.atn>h4:after {
+    content: attr(data-text);
+    transition: .6s;
+}
+
+.atn>h4:before {
+    left: 0;
+    top: 0;
+    position: absolute;
+}
+
+
+.comp1:hover>.atn>h4 {
+    transform: translate(5px, 5px);
+    color:rgb(237, 28, 26);
+    font-size: medium;
+    background-position: 100% 100%;
+        /*OR bottom right*/
+        background-size: 100% 2px;
+    
+}
+
+.atn>h4:hover:before {
+text-shadow:
+        0px 0px,
+        0px 0px,
+        0px 0px,
+        0px 0px,
+        0px 0px,
+        0px 0px,
+        0px 0px,
+        0px 0px,
+        0px 0px,
+        0px 0px;
+}

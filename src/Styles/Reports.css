@@ -24,7 +24,7 @@ body{
     background-color: var(--component-bgcolor);
     border-radius: 10px;
     border: 1px solid rgb(220, 220, 220);
-    
+    cursor: pointer;
 }
 
 .main-view{
