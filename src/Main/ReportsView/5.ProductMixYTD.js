@@ -10,7 +10,7 @@ export default function ProductMixYTD() {
     const total = productMixYTD.reduce((a, b) => { return (a + b) }, 0)
     const datas = [...productMixYTD.map(x => { return ((x * 100) / total) })]
     const data = {
-        labels: ['Electrodes', 'W&F', 'Eqpt. & SGP'],
+        labels: ['Electrodes', 'Eqpt. & SGP', 'W&F'],
         datasets: [
             {
                 label: '# of Votes',

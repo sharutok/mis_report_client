@@ -30,8 +30,9 @@ export default function BarApp() {
                         <img src={require('../Images/AWL_logo_new.png')} alt="ADOR" width={100} />
                     </Typography>
                     <Typography className='header' variant="h5" component="div" sx={{ flexGrow: 1, mt: 1 }}>
-                        MIS REPORT - Distributor Dashboard
+                        Domestic Welding MIS Report – Distributor Dashboard
                     </Typography>
+
                     {/* <a
                         style={{ textDecoration: "none" }}
                         className="Download"

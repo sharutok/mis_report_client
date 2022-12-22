@@ -20,7 +20,7 @@ export default function ProductMixCurrentMonth() {
     const total = productMixCurrMon.slice(productMixCurrMon.length - 1)
     const dataSet = [...[...productMixCurrMon.slice(0, -1)].map(x => { return ((x * 100) / total) })]
     const data = {
-        labels: ['Electrodes', 'W&F', 'Eqpt. & SGP'],
+        labels: ['Electrodes', 'Eqpt. & SGP', 'W&F'],
         datasets: [
             {
                 data: [...dataSet],

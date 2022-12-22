@@ -10,7 +10,7 @@ const backendPORT = window.location.port === "3000" ? "7000" : "3030";
 const backendHTTP = `${backendURL}:${backendPORT}`;
 
 export const httpApi = {
-    salesData: `${backendHTTP}/api/sales-data`,
+    salesData: `${backendHTTP}/api/sales-data`, 
     productMixData: `${backendHTTP}/api/product-mix-data`,
     top5SP: `${backendHTTP}/api/top-selling`,
     payables: `${backendHTTP}/api/payables`,

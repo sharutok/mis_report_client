@@ -126,7 +126,7 @@ export default function TOI() {
 
             <Bar options={options} plugins={[ChartDataLabels]}
                 data={data} />
-            {/* <div style={{ textAlign: "right", color: "grey", marginTop: "1rem" }}>* TOI will be calculated on net value excluding DAP charges</div> */}
+            <div style={{ textAlign: "right", color: "grey", marginTop: "1rem" }}>* TOI will be calculated on net value excluding DAP charges</div>
         </div >
     )
 }

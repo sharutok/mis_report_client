@@ -135,7 +135,7 @@ export default function Top5SelllingProducts() {
     return (
         <>
             <div>
-                <h4>Top 5 Selling Products - {moment(convertStringToDate(date_time_string)).format('MMMM')}* </h4>
+                <h4>Top 5 Selling Products - YTD * </h4>
                 <Bar
                     options={options} data={data} />
             </div>

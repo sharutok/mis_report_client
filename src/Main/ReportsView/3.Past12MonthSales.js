@@ -59,7 +59,7 @@ export default function Past12MonthSales() {
             },
             title: {
                 display: true,
-                text: 'Past 12 Month Sales*',
+                text: 'Past 12 Month Performance*',
                 font: {
                     size: 20
                 }

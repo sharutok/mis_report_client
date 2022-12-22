@@ -9,12 +9,13 @@ import { growthFormula, growthIcon, y1, y2 } from '../../Side/Misc';
 import { useParams } from 'react-router-dom';
 import '../../Styles/SalesDataSet.css'
 import { convertStringToDate } from '../../Side/Misc'
+import UpdatedSalesDataSet from './UpdatedSalesDataSet';
 
 export default function SalesDataSet() {
     const { cust_id, date_time_string } = useParams()
     const [monthDiff, setMonthDiff] = useState("")
     const { salesDataForCurrMon, setSalesDataForCurrMon, salesDataForQTD, setSalesDataForQTD, salesDataForYTD, setSalesDataForYTD, setQtrMonths, setSalesDataForPast12Months } = useContext(ContextHelper)
-    let thead = [y1, y2, 'Growth (%)']
+    let thead = [y1, y2, 'of growth (%)']
 
     async function datas() {
         let flag = []
@@ -68,56 +69,67 @@ export default function SalesDataSet() {
     // if (isLoading) {
     //     return <p>Loading....</p>
     // }
-
-    return (
-        <div>
-            <h4>Sales Data (in ₹ Lakhs  )*</h4>
+    const state = true
+    if (state) {
+        return (
             <div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th className='no-border'></th>
-                            {thead.map((x, i) => {
-                                return (
-                                    <th key={i}>{x}</th>)
-                            })}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td className='growth-text'>{moment(convertStringToDate(date_time_string)).format('MMMM')}</td>
-                            {salesDataForCurrMon.map((x, i) => {
-                                return (<td key={i}>{Math.round(x)}</td>)
-                            })}
-                            <td className='growth-text' style={{ color: growthFormula(salesDataForCurrMon[1], salesDataForCurrMon[0]) ? growthFormula(salesDataForCurrMon[1], salesDataForCurrMon[0]) < 0 ? "red" : "green" : 'orange' }}>{(growthFormula(salesDataForCurrMon[1], salesDataForCurrMon[0]))} {growthIcon(growthFormula(salesDataForCurrMon[1], salesDataForCurrMon[0]))}</td>
-                        </tr>
-                        <tr>
-                            <td className='growth-text'>{"QTD"}</td>
-                            <td>{Math.round(salesDataForQTD.slice(0, salesDataForQTD.length / 2).reduce((a, b) => { return a + b }, 0))}</td>
-                            <td>{Math.round(salesDataForQTD.slice(salesDataForQTD.length / 2).reduce((a, b) => { return a + b }, 0))}</td>
-                            <td className='growth-text' style={{ color: growthFormula(salesDataForQTD.slice(salesDataForQTD.length / 2).reduce((a, b) => { return a + b }, 0), salesDataForQTD.slice(0, salesDataForQTD.length / 2).reduce((a, b) => { return a + b }, 0)) ? growthFormula(salesDataForQTD.slice(salesDataForQTD.length / 2).reduce((a, b) => { return a + b }, 0), salesDataForQTD.slice(0, salesDataForQTD.length / 2).reduce((a, b) => { return a + b }, 0)) < 0 ? "red" : "green" : 'orange' }}>{(growthFormula(salesDataForQTD.slice(salesDataForQTD.length / 2).reduce((a, b) => { return a + b }, 0), salesDataForQTD.slice(0, salesDataForQTD.length / 2).reduce((a, b) => { return a + b }, 0)))} {growthIcon(growthFormula(salesDataForQTD.slice(salesDataForQTD.length / 2).reduce((a, b) => { return a + b }, 0), salesDataForQTD.slice(0, salesDataForQTD.length / 2).reduce((a, b) => { return a + b }, 0)))}</td>
-                        </tr>
-                        <tr>
-                            <td className='growth-text'>{"YTD"}</td>
-                            {salesDataForYTD.map((x, i) => {
-                                return (<td key={i}>
-                                    {Math.round(x)}
-                                </td>)
-                            })}
-                            <td className='growth-text' style={{ color: growthFormula(salesDataForYTD[1], salesDataForYTD[0]) ? growthFormula(salesDataForYTD[1], salesDataForYTD[0]) < 0 ? "red" : "green" : 'orange' }} >{(growthFormula(salesDataForYTD[1], salesDataForYTD[0]))} {growthIcon(growthFormula(salesDataForYTD[1], salesDataForYTD[0]))}</td>
-                        </tr>
-                        <tr>
-                            <td className='growth-text' style={{ fontSize: "0.9rem" }}>{"Avg. Monthly Sales"}</td>
-                            {salesDataForYTD.map((x, i) => {
-                                return (<td key={i}>
-                                    {Math.round(x / monthDiff)}
-                                </td>)
-                            })}
-                            <td className='growth-text' style={{ color: growthFormula(salesDataForYTD[1] / monthDiff, salesDataForYTD[0] / monthDiff) ? growthFormula(salesDataForYTD[1] / monthDiff, salesDataForYTD[0] / monthDiff) < 0 ? "red" : "green" : 'orange' }} >{(growthFormula(salesDataForYTD[1] / monthDiff, salesDataForYTD[0] / monthDiff))} {growthIcon(growthFormula(salesDataForYTD[1] / monthDiff, salesDataForYTD[0] / monthDiff))}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div >
-    )
+                <h4>Sales Data (in ₹ Lakhs  )*</h4>
+                <div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th className='no-border'></th>
+                                {thead.map((x, i) => {
+                                    return (
+                                        <th key={i}>{x}</th>)
+                                })}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td className='growth-text'>{moment(convertStringToDate(date_time_string)).format('MMMM')}</td>
+                                {salesDataForCurrMon.map((x, i) => {
+                                    return (<td key={i}>{Math.round(x)}</td>)
+                                })}
+                                <td className='growth-text' style={{ color: growthFormula(salesDataForCurrMon[1], salesDataForCurrMon[0]) ? growthFormula(salesDataForCurrMon[1], salesDataForCurrMon[0]) < 0 ? "red" : "green" : 'orange' }}>{(growthFormula(salesDataForCurrMon[1], salesDataForCurrMon[0]))} {growthIcon(growthFormula(salesDataForCurrMon[1], salesDataForCurrMon[0]))}</td>
+                            </tr>
+                            <tr>
+                                <td className='growth-text'>{"QTD"}</td>
+                                <td>{Math.round(salesDataForQTD.slice(0, salesDataForQTD.length / 2).reduce((a, b) => { return a + b }, 0))}</td>
+                                <td>{Math.round(salesDataForQTD.slice(salesDataForQTD.length / 2).reduce((a, b) => { return a + b }, 0))}</td>
+                                <td className='growth-text' style={{ color: growthFormula(salesDataForQTD.slice(salesDataForQTD.length / 2).reduce((a, b) => { return a + b }, 0), salesDataForQTD.slice(0, salesDataForQTD.length / 2).reduce((a, b) => { return a + b }, 0)) ? growthFormula(salesDataForQTD.slice(salesDataForQTD.length / 2).reduce((a, b) => { return a + b }, 0), salesDataForQTD.slice(0, salesDataForQTD.length / 2).reduce((a, b) => { return a + b }, 0)) < 0 ? "red" : "green" : 'orange' }}>{(growthFormula(salesDataForQTD.slice(salesDataForQTD.length / 2).reduce((a, b) => { return a + b }, 0), salesDataForQTD.slice(0, salesDataForQTD.length / 2).reduce((a, b) => { return a + b }, 0)))} {growthIcon(growthFormula(salesDataForQTD.slice(salesDataForQTD.length / 2).reduce((a, b) => { return a + b }, 0), salesDataForQTD.slice(0, salesDataForQTD.length / 2).reduce((a, b) => { return a + b }, 0)))}</td>
+                            </tr>
+                            <tr>
+                                <td className='growth-text'>{"YTD"}</td>
+                                {salesDataForYTD.map((x, i) => {
+                                    return (<td key={i}>
+                                        {Math.round(x)}
+                                    </td>)
+                                })}
+                                <td className='growth-text' style={{ color: growthFormula(salesDataForYTD[1], salesDataForYTD[0]) ? growthFormula(salesDataForYTD[1], salesDataForYTD[0]) < 0 ? "red" : "green" : 'orange' }} >{(growthFormula(salesDataForYTD[1], salesDataForYTD[0]))} {growthIcon(growthFormula(salesDataForYTD[1], salesDataForYTD[0]))}</td>
+                            </tr>
+                            <tr>
+                                <td className='growth-text' style={{ fontSize: "0.9rem" }}>{"Avg. Monthly Sales"}</td>
+                                {salesDataForYTD.map((x, i) => {
+                                    return (<td key={i}>
+                                        {Math.round(x / monthDiff)}
+                                    </td>)
+                                })}
+                                <td className='growth-text' style={{ color: growthFormula(salesDataForYTD[1] / monthDiff, salesDataForYTD[0] / monthDiff) ? growthFormula(salesDataForYTD[1] / monthDiff, salesDataForYTD[0] / monthDiff) < 0 ? "red" : "green" : 'orange' }} >{(growthFormula(salesDataForYTD[1] / monthDiff, salesDataForYTD[0] / monthDiff))} {growthIcon(growthFormula(salesDataForYTD[1] / monthDiff, salesDataForYTD[0] / monthDiff))}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div >
+
+        )
+    }
+    if (!state) {
+        return (
+            <>
+                <h4>Sales Data (in ₹ Lakhs  )*</h4>
+                <UpdatedSalesDataSet />
+            </>
+        )
+    }
 }   

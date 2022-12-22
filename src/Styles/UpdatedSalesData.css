@@ -1,0 +1,12 @@
+.action{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 1rem;
+}
+
+/* .abs{
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+    gap: 1rem;
+
+} */
