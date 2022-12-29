@@ -201,7 +201,7 @@ export default function UpdatedSalesDataSet() {
                             size="xl"
                             className={classes.label}
                         >
-                            Avg. Monthly Sales
+                            Avg. Monthly
                         </Text>
                         <Text
                             color="dimmed"
@@ -251,13 +251,4 @@ export default function UpdatedSalesDataSet() {
 
         </div>
     );
-
-
-    // return (
-    //     <div className={classes.root}>
-    //         <SimpleGrid cols={3} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
-    //             {stats}
-    //         </SimpleGrid>
-    //     </div>
-    // );
 }

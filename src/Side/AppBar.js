@@ -19,6 +19,16 @@ export default function BarApp() {
     // console.log(a + b + c + d);
     // const val = `ADMIS_LEDGER_OCT-22-23_`
 
+    const _ledger_pdf_ = () => {
+        console.log(window.location.port);
+        if (window.location.port = "3000") {
+            // return require(`../../../server/Resources/Ledger_PDF/${val + cust_id}.pdf`)
+            return require(`../../../ADMIS_PDF/${val + cust_id}.pdf`)
+        }
+        if (window.location.port = "3030") {
+            return require(`../../../ADMIS_PDF/${val + cust_id}.pdf`)
+        }
+    }
 
 
     const { cust_id } = useParams()
@@ -33,16 +43,16 @@ export default function BarApp() {
                         Domestic Welding MIS Report – Distributor Dashboard
                     </Typography>
 
-                    {/* <a
+                    <a
                         style={{ textDecoration: "none" }}
                         className="Download"
                         target="_blank"
                         rel="noreferrer"
-                        href={require(`../../../server/Resources/Ledger_PDF/${val + cust_id}.pdf`)}
+                        href={require(`../../../ADMIS_PDF/${val + cust_id}.pdf`)}
                         download
                     >
                         <Button className='button-download-ledger btn-download' endIcon={<IconDownload />} variant="contained">Download Ledger</Button>
-                    </a> */}
+                    </a>
                 </Toolbar>
             </AppBar>
         </Box></div>

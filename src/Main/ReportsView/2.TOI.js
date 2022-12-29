@@ -31,20 +31,20 @@ export default function TOI() {
     const labels = ["Month wise sales in the Quarter"]
     const datasetz = [{
         label: moment().month(qtrMonths[0] - 1).format("MMM"),
-        data: salesDataForQTD.slice((1, salesDataForQTD.length / 2))[0] && [salesDataForQTD.slice((1, salesDataForQTD.length / 2))[0]],
+        data: salesDataForQTD.slice((1, salesDataForQTD.length / 2))[0] && [Math.round(salesDataForQTD.slice((1, salesDataForQTD.length / 2))[0])],
         backgroundColor: '#dd6e42',
         barThickness,
 
     },
     salesDataForQTD.slice((1, salesDataForQTD.length / 2))[1] && {
         label: moment().month(qtrMonths[1] - 1).format("MMM"),
-        data: salesDataForQTD.slice((1, salesDataForQTD.length / 2))[1] && [salesDataForQTD.slice((1, salesDataForQTD.length / 2))[1]],
+        data: salesDataForQTD.slice((1, salesDataForQTD.length / 2))[1] && [Math.round(salesDataForQTD.slice((1, salesDataForQTD.length / 2))[1])],
         backgroundColor: '#e8dab2',
         barThickness,
     },
     salesDataForQTD.slice((1, salesDataForQTD.length / 2))[2] && {
         label: moment().month(qtrMonths[2] - 1).format("MMM"),
-        data: salesDataForQTD.slice((1, salesDataForQTD.length / 2))[2] && [salesDataForQTD.slice((1, salesDataForQTD.length / 2))[2]],
+        data: salesDataForQTD.slice((1, salesDataForQTD.length / 2))[2] && [Math.round(salesDataForQTD.slice((1, salesDataForQTD.length / 2))[2])],
         backgroundColor: '#4f6d7a',
         barThickness,
     },]
@@ -101,7 +101,9 @@ export default function TOI() {
                 max: 475,
                 afterBuildTicks: axis => axis.ticks = [...dataPoints].map(v => ({ value: v })),
                 ticks: {
+                    // fontColor: "#CCC",
                     callback: function (value, index) {
+                        console.log(salesDataForQTD);
                         return value
                     }
                 },
@@ -117,16 +119,14 @@ export default function TOI() {
                 },
                 stacked: true,
 
-
             },
         },
     };
     return (
         <div >
-
             <Bar options={options} plugins={[ChartDataLabels]}
                 data={data} />
-            <div style={{ textAlign: "right", color: "grey", marginTop: "1rem" }}>* TOI will be calculated on net value excluding DAP charges</div>
+            <div style={{ fontSize: ".9rem", textAlign: "right", color: "grey", marginTop: "1rem", fontFamily: "Arial, Helvetica, sans-serif" }}>* TOI will be calculated on net value excluding DAP charges</div>
         </div >
     )
 }

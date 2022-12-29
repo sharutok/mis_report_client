@@ -25,16 +25,16 @@ export default function ProductMixDataSet() {
             })
         })
         setProductMixCurrMon(_a)
-        console.log(_a);
+        // console.log(_a);
 
         let _b = []
         pro_mix_qtd.map(x => {
             Object.values(x).map(y => {
+                console.log(y);
                 _b.push(y)
             })
         })
         setProductMixQTD(_b)
-        console.log(_b);
 
         let _c = []
         pro_mix_ytd.map(x => {
@@ -45,7 +45,7 @@ export default function ProductMixDataSet() {
             })
         })
         setProductMixYTD(_c)
-        console.log(_c);
+        // console.log(_c);
     }
 
 
@@ -95,7 +95,7 @@ export default function ProductMixDataSet() {
                                     {Math.round(x)}
                                 </td>)
                             })}
-                            <td>{productMixYTD.reduce((a, b) => { return Math.round((Number(a) + Number(b))) }, 0)}</td>
+                            <td>{productMixYTD.reduce((a, b) => { return (Math.round(Number(a) + Number(b))) }, 0)}</td>
                         </tr>
                     </tbody>
                 </table>

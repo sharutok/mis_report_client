@@ -25,17 +25,20 @@ export default function Top5SelllingProducts() {
 
     function payables(value) {
         var val = Math.abs(value)
-        //1Cr
+        //Cr
         if (val >= 10000000) {
-            val = (val / 100000).toFixed(2);
+            val = (val / 100000).toFixed(1);
         }
         //Lac
         else if (val >= 100000) {
             val = (val / 100000).toFixed(2);
         }
-        //K
+        //10K
         else if (val >= 10000) {
-            val = (val / 10000).toFixed(2);
+            val = (val / 100000).toFixed(1);
+        }//1k
+        else if (val >= 10000) {
+            val = (val / 1000000).toFixed(2);
         }
         return Number(val)
     }

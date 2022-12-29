@@ -47,7 +47,8 @@ export default function ProductMixCurrentMonth() {
                 formatter: (val) => {
                     return `${(String(val).substring(0, 4))}%`
                 },
-                padding: 6
+                padding: 6,
+                rotation: "45",
             },
             legend: {
                 position: 'top',
@@ -76,6 +77,9 @@ export default function ProductMixCurrentMonth() {
 
     };
     return (
-        <div ><Doughnut data={data} options={options} plugins={[ChartDataLabels]} /></div>
+        <div ><Doughnut data={data} options={options}
+            plugins={[ChartDataLabels]}
+        />
+        </div>
     )
 }
