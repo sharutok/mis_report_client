@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, } from 'react'
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -12,11 +12,11 @@ import { Bar, defaults } from 'react-chartjs-2';
 import { ContextHelper } from '../HomePage';
 import moment from 'moment';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import { ReactQuery } from '../../Side/Misc';
 
 
 export default function TOI() {
     const { salesDataForQTD, qtrMonths } = useContext(ContextHelper)
-    // console.log(salesDataForQTD, qtrMonths);
     const barThickness = 200
     ChartJS.register(
         CategoryScale,
@@ -103,7 +103,7 @@ export default function TOI() {
                 ticks: {
                     // fontColor: "#CCC",
                     callback: function (value, index) {
-                        console.log(salesDataForQTD);
+                        // console.log(salesDataForQTD);
                         return value
                     }
                 },

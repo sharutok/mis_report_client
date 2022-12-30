@@ -43,7 +43,6 @@ export default function Top5SelllingProducts() {
         return Number(val)
     }
 
-
     const getData = async () => {
         const data = await axios.post(httpApi.top5SP, { cust_id, date_time_string })
         const { consumables, equipment } = data.data.data

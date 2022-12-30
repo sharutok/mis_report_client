@@ -1,11 +1,9 @@
 import React, { useEffect, useContext, useState } from 'react'
 import moment from 'moment'
-// import { useQuery } from '@tanstack/react-query'
 import { httpApi } from '../../Side/Http'
 import axios from "axios";
 import { ContextHelper } from '../HomePage';
-import { growthFormula, growthIcon, y1, y2 } from '../../Side/Misc';
-// import { IconInfoCircle } from '@tabler/icons'
+import { growthFormula, growthIcon, ReactQuery, y1, y2 } from '../../Side/Misc';
 import { useParams } from 'react-router-dom';
 import '../../Styles/SalesDataSet.css'
 import { convertStringToDate } from '../../Side/Misc'
@@ -59,15 +57,18 @@ export default function SalesDataSet() {
         setMonthDiff(month_difference)
     }
 
-    // const { data, isLoading } = useQuery(['sales-data'], async () => { return await axios.post(httpApi.salesData, { cust_id, date_time_string }) })
-    // console.log(data);   
+
 
     useEffect(() => {
         datas()
-    }, [1])
+    }, [])
+
+    // const isLoading = ReactQuery(httpApi.salesData, { cust_id, date_time_string })
 
     // if (isLoading) {
-    //     return <p>Loading....</p>
+    //     return (<div style={{ textAlign: "center" }}>
+    //         <h1>Loading....</h1>
+    //     </div>)
     // }
     const state = true
     if (state) {

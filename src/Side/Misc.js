@@ -1,6 +1,7 @@
 import { IconArrowUpRight, IconArrowDownRight, IconArrowRight } from '@tabler/icons';
 import moment from 'moment';
-
+import { useQuery } from '@tanstack/react-query'
+import axios from 'axios';
 export const growthFormula = (a, b) => {
 
     const diff = a - b
@@ -29,5 +30,10 @@ export const y2 = `FY ${moment().format('YYYY')} - ${moment().add(1, 'years').ca
 
 export const convertStringToDate = (date_time_string) => {
     return new Date(Number(date_time_string)).toISOString().substring(0, 10)
+
+}
+export function ReactQuery(httpApi, parameter) {
+    const { isLoading } = useQuery(['sales-data'], async () => { return await axios.post(httpApi, parameter) })
+    return isLoading
 
 }

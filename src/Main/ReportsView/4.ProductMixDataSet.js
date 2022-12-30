@@ -4,7 +4,7 @@ import { httpApi } from '../../Side/Http'
 import { ContextHelper } from '../HomePage'
 import moment from 'moment'
 import { useParams } from 'react-router-dom'
-import { convertStringToDate } from '../../Side/Misc'
+import { ReactQuery, convertStringToDate } from '../../Side/Misc'
 
 export default function ProductMixDataSet() {
     const { cust_id, date_time_string } = useParams()
@@ -30,7 +30,7 @@ export default function ProductMixDataSet() {
         let _b = []
         pro_mix_qtd.map(x => {
             Object.values(x).map(y => {
-                console.log(y);
+                // console.log(y);
                 _b.push(y)
             })
         })
@@ -54,7 +54,13 @@ export default function ProductMixDataSet() {
     useEffect(() => {
         getData()
     }, [])
+    // const isLoading = ReactQuery(httpApi.productMixData, { cust_id, date_time_string })
 
+    // if (isLoading) {
+    //     return (<div style={{ textAlign: "center" }}>
+    //         <h1>Loading....</h1>
+    //     </div>)
+    // }
     return (
         <div>
             <h4>Product Mix (in ₹ Lakhs  )*</h4>
