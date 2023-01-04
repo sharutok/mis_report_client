@@ -12,21 +12,29 @@ import UpdatedSalesDataSet from './UpdatedSalesDataSet';
 export default function SalesDataSet() {
     const { cust_id, date_time_string } = useParams()
     const [monthDiff, setMonthDiff] = useState("")
+    const [FY, setFY] = useState('')
     const { salesDataForCurrMon, setSalesDataForCurrMon, salesDataForQTD, setSalesDataForQTD, salesDataForYTD, setSalesDataForYTD, setQtrMonths, setSalesDataForPast12Months } = useContext(ContextHelper)
-    let thead = [y1, y2, 'of growth (%)']
+
 
     async function datas() {
         let flag = []
         const data = await axios.post(httpApi.salesData, { cust_id, date_time_string })
 
         const { current_month_sale, current_qtr_sale, annual_sales, current_qtr_month, last_12_months_data,
-            month_difference } = data.data.data.data
+            month_difference, fy } = data.data.data.data
 
+
+        //fy
+        setFY(fy)
+
+        flag = []
         current_month_sale.map(x => {
             Object.values(x).map(y => {
                 flag.push(y)
             })
         })
+
+
 
         //current month
         setSalesDataForCurrMon(flag)
@@ -57,7 +65,7 @@ export default function SalesDataSet() {
         setMonthDiff(month_difference)
     }
 
-
+    let thead = [`${moment(new Date(FY)).subtract(1, 'years').format('YYYY')} - ${moment(new Date(FY)).format('YYYY')}`, `${moment(new Date(FY)).format('YYYY')} - ${moment(new Date(FY)).add(1, 'years').format('YYYY')}`, 'of growth (%)']
 
     useEffect(() => {
         datas()

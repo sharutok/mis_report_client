@@ -131,7 +131,7 @@ export default function OTPDialogBox() {
                 </DialogContent>
                 <div style={{ display: "flex", justifyContent: "center" }}>
                     <DialogActions>
-                        <Button style={{ color: "white", background: "grey", }} variant="contained" onClick={handleOnSubmit}>Submit OTP !</Button>
+                        <Button style={{ color: "white", background: "grey", }} variant="contained" onClick={handleOnSubmit}>Submit OTP </Button>
                     </DialogActions>
                 </div>
             </Dialog>
