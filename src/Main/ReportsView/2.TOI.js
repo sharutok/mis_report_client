@@ -54,6 +54,12 @@ export default function TOI() {
             ...datasetz.filter(n => n)
         ],
     };
+    const total_sum = [
+        Math.round(salesDataForQTD.slice((1, salesDataForQTD.length / 2))[0]),
+        Math.round(salesDataForQTD.slice((1, salesDataForQTD.length / 2))[1]),
+        Math.round(salesDataForQTD.slice((1, salesDataForQTD.length / 2))[2])
+    ].reduce((partialSum, a) => partialSum + a, 0)
+    console.log(total_sum);
     const options = {
         responsive: true,
         plugins: {
@@ -98,7 +104,8 @@ export default function TOI() {
                 }
             },
             y: {
-                max: 475,
+                max: total_sum
+                ,
                 afterBuildTicks: axis => axis.ticks = [...dataPoints].map(v => ({ value: v })),
                 ticks: {
                     // fontColor: "#CCC",
