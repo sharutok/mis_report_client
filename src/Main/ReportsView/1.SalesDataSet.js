@@ -98,31 +98,36 @@ export default function SalesDataSet() {
                             <tr>
                                 <td className='growth-text'>{moment(convertStringToDate(date_time_string)).format('MMMM')}</td>
                                 {salesDataForCurrMon.map((x, i) => {
-                                    return (<td key={i}>{Math.round(x)}</td>)
+                                    return (
+                                        x ? <td key={i}>{(x).toFixed(2)}</td> : <td key={i}>{0}</td>
+                                    )
                                 })}
                                 <td className='growth-text' style={{ color: growthFormula(salesDataForCurrMon[1], salesDataForCurrMon[0]) ? growthFormula(salesDataForCurrMon[1], salesDataForCurrMon[0]) < 0 ? "red" : "green" : 'orange' }}>{(growthFormula(salesDataForCurrMon[1], salesDataForCurrMon[0]))} {growthIcon(growthFormula(salesDataForCurrMon[1], salesDataForCurrMon[0]))}</td>
                             </tr>
                             <tr>
                                 <td className='growth-text'>{"QTD"}</td>
-                                <td>{Math.round(salesDataForQTD.slice(0, salesDataForQTD.length / 2).reduce((a, b) => { return a + b }, 0))}</td>
-                                <td>{Math.round(salesDataForQTD.slice(salesDataForQTD.length / 2).reduce((a, b) => { return a + b }, 0))}</td>
+                                <td>{salesDataForQTD.slice(0, salesDataForQTD.length / 2).reduce((a, b) => { return a + b }, 0) && (salesDataForQTD.slice(0, salesDataForQTD.length / 2).reduce((a, b) => { return a + b }, 0)).toFixed(2)}</td>
+                                <td>{salesDataForQTD.slice(salesDataForQTD.length / 2).reduce((a, b) => { return a + b }, 0) && (salesDataForQTD.slice(salesDataForQTD.length / 2).reduce((a, b) => { return a + b }, 0)).toFixed(2)}</td>
                                 <td className='growth-text' style={{ color: growthFormula(salesDataForQTD.slice(salesDataForQTD.length / 2).reduce((a, b) => { return a + b }, 0), salesDataForQTD.slice(0, salesDataForQTD.length / 2).reduce((a, b) => { return a + b }, 0)) ? growthFormula(salesDataForQTD.slice(salesDataForQTD.length / 2).reduce((a, b) => { return a + b }, 0), salesDataForQTD.slice(0, salesDataForQTD.length / 2).reduce((a, b) => { return a + b }, 0)) < 0 ? "red" : "green" : 'orange' }}>{(growthFormula(salesDataForQTD.slice(salesDataForQTD.length / 2).reduce((a, b) => { return a + b }, 0), salesDataForQTD.slice(0, salesDataForQTD.length / 2).reduce((a, b) => { return a + b }, 0)))} {growthIcon(growthFormula(salesDataForQTD.slice(salesDataForQTD.length / 2).reduce((a, b) => { return a + b }, 0), salesDataForQTD.slice(0, salesDataForQTD.length / 2).reduce((a, b) => { return a + b }, 0)))}</td>
                             </tr>
                             <tr>
                                 <td className='growth-text'>{"YTD"}</td>
                                 {salesDataForYTD.map((x, i) => {
-                                    return (<td key={i}>
-                                        {Math.round(x)}
-                                    </td>)
+                                    return (
+                                        (x) && <td key={i}>
+                                            {(x).toFixed(2)}
+                                        </td>)
                                 })}
                                 <td className='growth-text' style={{ color: growthFormula(salesDataForYTD[1], salesDataForYTD[0]) ? growthFormula(salesDataForYTD[1], salesDataForYTD[0]) < 0 ? "red" : "green" : 'orange' }} >{(growthFormula(salesDataForYTD[1], salesDataForYTD[0]))} {growthIcon(growthFormula(salesDataForYTD[1], salesDataForYTD[0]))}</td>
                             </tr>
                             <tr>
                                 <td className='growth-text' style={{ fontSize: "0.9rem" }}>{"Avg. Monthly Sales"}</td>
                                 {salesDataForYTD.map((x, i) => {
-                                    return (<td key={i}>
-                                        {Math.round(x / monthDiff)}
-                                    </td>)
+                                    return (
+                                        (x / monthDiff) && <td key={i}>
+                                            {(x / monthDiff).toFixed(2)}
+                                        </td>
+                                    )
                                 })}
                                 <td className='growth-text' style={{ color: growthFormula(salesDataForYTD[1] / monthDiff, salesDataForYTD[0] / monthDiff) ? growthFormula(salesDataForYTD[1] / monthDiff, salesDataForYTD[0] / monthDiff) < 0 ? "red" : "green" : 'orange' }} >{(growthFormula(salesDataForYTD[1] / monthDiff, salesDataForYTD[0] / monthDiff))} {growthIcon(growthFormula(salesDataForYTD[1] / monthDiff, salesDataForYTD[0] / monthDiff))}</td>
                             </tr>

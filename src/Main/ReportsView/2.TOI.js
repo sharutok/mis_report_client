@@ -59,7 +59,6 @@ export default function TOI() {
         Math.round(salesDataForQTD.slice((1, salesDataForQTD.length / 2))[1]),
         Math.round(salesDataForQTD.slice((1, salesDataForQTD.length / 2))[2])
     ].reduce((partialSum, a) => partialSum + a, 0)
-    console.log(total_sum);
     const options = {
         responsive: true,
         plugins: {

@@ -19,11 +19,12 @@ export default function ProductMixCurrentMonth() {
     const { productMixCurrMon } = useContext(ContextHelper)
     const total = productMixCurrMon.slice(productMixCurrMon.length - 1)
     const dataSet = [...[...productMixCurrMon.slice(0, -1)].map(x => { return ((x * 100) / total) })]
+    console.log(dataSet);
     const data = {
         labels: ['Electrodes', 'Eqpt. & SGP', 'W&F'],
         datasets: [
             {
-                data: [...dataSet],
+                data: [...dataSet].length === null ? 0 : [...dataSet],
                 backgroundColor: [
                     '#dd6e42',
                     '#e8dab2',

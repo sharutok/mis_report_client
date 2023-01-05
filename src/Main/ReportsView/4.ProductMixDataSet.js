@@ -81,7 +81,7 @@ export default function ProductMixDataSet() {
                             <td className='growth-text'>{moment(convertStringToDate(date_time_string)).format('MMMM')}</td>
                             {productMixCurrMon.map((x, i) => {
                                 return (
-                                    <td key={i} >{Math.round(Number(x))}</td>
+                                    x ? <td key={i} >{(Number(x)).toFixed(2)}</td> : <td key={i} >{0}</td>
                                 )
                             })}
                         </tr>
@@ -89,7 +89,7 @@ export default function ProductMixDataSet() {
                             <td className='growth-text'>{"QTD"}</td>
                             {productMixQTD.map((x, i) => {
                                 return (
-                                    <td key={i} >{Math.round(Number(x))}</td>
+                                    x ? <td key={i} >{(Number(x).toFixed(2))}</td> : <td key={i} >{0}</td>
                                 )
                             })}
 
@@ -97,11 +97,11 @@ export default function ProductMixDataSet() {
                         <tr>
                             <td className='growth-text'>{"YTD"}</td>
                             {productMixYTD.map((x, i) => {
-                                return (<td key={i}>
-                                    {Math.round(x)}
-                                </td>)
+                                return (
+                                    x ? <td key={i}>{(x).toFixed(2)}</td> : <td key={i} >{0}</td>
+                                )
                             })}
-                            <td>{productMixYTD.reduce((a, b) => { return (Math.round(Number(a) + Number(b))) }, 0)}</td>
+                            <td>{productMixYTD.reduce((a, b) => { return (((Number(a)) + (Number(b)) ? ((Number(a)) + (Number(b))).toFixed(2) : 0)) }, 0)}</td>
                         </tr>
                     </tbody>
                 </table>
