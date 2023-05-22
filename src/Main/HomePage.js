@@ -85,11 +85,11 @@ export default function HomePage() {
     <div>
       <QueryClientProvider client={queryClient}>
         <ContextHelper.Provider value={value}>
-          {/* <BarApp />
+          <BarApp />
           <UserInfo />
-          <Reports /> */}
+          <Reports />
 
-          {!getCookies()[2] && <OTPDialogBox />}
+          {/* {!getCookies()[2] && <OTPDialogBox />}
           {getCookies()[2] && compareHash() ? (
             <>
               <BarApp />
@@ -98,7 +98,7 @@ export default function HomePage() {
             </>
           ) : (
             <AlterErrorPage />
-          )}
+          )} */}
         </ContextHelper.Provider>
       </QueryClientProvider>
     </div>

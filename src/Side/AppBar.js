@@ -13,32 +13,31 @@ export default function BarApp() {
   const convertStringToDate = new Date(Number(date_time_string))
     .toISOString()
     .substring(0, 10);
-  function getFinancialYear(month) {
-    const current_year = moment().subtract(1, "years").format("YYYY");
-    const last_year = moment(new Date(current_year))
-      .subtract(1, "years")
-      .format("YYYY");
-    if (["January", "February", "March"].includes(month)) {
+
+  function getFinancialYear(_month) {
+    let prev_month = moment().subtract(1, "months").format("MMMM");
+    if (["January", "February", "March"].includes(prev_month)) {
+      const current_year = moment().subtract(1, "years").format("YYYY");
+      const last_year = moment(new Date(current_year))
+        .subtract(1, "years")
+        .format("YYYY");
       return [last_year, current_year];
     }
     return [
       moment().subtract(1, "y").calendar().substring(6, 10),
-      current_year,
+      moment().format("YYYY"),
     ];
   }
 
-  const f = getFinancialYear(
-    moment(new Date(convertStringToDate)).format("MMMM")
-  );
-  const _yr_ = [...f];
-
-  console.log(_yr_);
+  const f = getFinancialYear(moment().format("MMMM"));
 
   const a = "ADMIS_LEDGER";
   const b = moment(convertStringToDate).format("MMM").toUpperCase();
-  const c = moment(_yr_[1]).format("YY");
-  const d = moment(_yr_[1]).add(1, "years").format("YY");
+  const c = moment(f[1]).format("YY");
+  const d = moment(f[1]).add(1, "years").format("YY");
   const val = `${a}_${b}-${c}-${d}_`;
+
+  console.log(val);
 
   const _ledger_pdf_ = () => {
     console.log(window.location.port);

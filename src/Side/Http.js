@@ -1,5 +1,5 @@
 const backendURL =
-  window.location.port === "3000" ? "http://localhost" : "http://14.143.203.75";
+  window.location.port === "3000" ? "http://localhost" : "http://27.107.7.11";
 const backendPORT = window.location.port === "3000" ? "7000" : "8030";
 
 const backendHTTP = `${backendURL}:${backendPORT}`;
