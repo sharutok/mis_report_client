@@ -12,4 +12,5 @@ export const httpApi = {
   distributorOrigin: `${backendHTTP}/api/distributor-origin`,
   otp_sender: `${backendHTTP}/api/get/otp`,
   otp_verify: `${backendHTTP}/api/verify/otp`,
+  getFile: `${backendHTTP}/api/serve/document`,
 };

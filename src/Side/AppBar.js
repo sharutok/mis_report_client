@@ -8,12 +8,15 @@ import { IconDownload } from "@tabler/icons";
 import { useParams } from "react-router-dom";
 import "../Styles/AppBar.css";
 import moment from "moment";
+import axios from "axios";
+import { httpApi } from "./Http";
+
 export default function BarApp() {
-  const { date_time_string } = useParams();
+  const { date_time_string, cust_id } = useParams();
   const convertStringToDate = new Date(Number(date_time_string))
     .toISOString()
     .substring(0, 10);
-
+  /*
   function getFinancialYear(_month) {
     let prev_month = moment().subtract(1, "months").format("MMMM");
     if (["January", "February", "March"].includes(prev_month)) {
@@ -42,14 +45,51 @@ export default function BarApp() {
   const _ledger_pdf_ = () => {
     console.log(window.location.port);
     if ((window.location.port = "3000")) {
-      return require(`../../../../../ADMIS_PDF/${val + cust_id}.pdf`);
+      return require(`  /${val + cust_id}.pdf`);
     }
     if ((window.location.port = "3030")) {
       return require(`../../../../../ADMIS_PDF/${val + cust_id}.pdf`);
     }
   };
+*/
+  async function getFile() {
+    try {
+      const response = await axios.get(
+        httpApi.getFile + `/${cust_id}/${date_time_string}`
+      );
+      const { data, filename } = response.data;
+      const blobData = base64ToBlob(data, "application/pdf");
+      const url = window.URL.createObjectURL(blobData);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = filename;
+      link.click();
+      URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error("Error downloading PDF:", error);
+    }
+  }
 
-  const { cust_id } = useParams();
+  const base64ToBlob = (base64Data, contentType) => {
+    const sliceSize = 512;
+    const byteCharacters = atob(base64Data);
+    const byteArrays = [];
+
+    for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+      const slice = byteCharacters.slice(offset, offset + sliceSize);
+      const byteNumbers = new Array(slice.length);
+
+      for (let i = 0; i < slice.length; i++) {
+        byteNumbers[i] = slice.charCodeAt(i);
+      }
+
+      const byteArray = new Uint8Array(byteNumbers);
+      byteArrays.push(byteArray);
+    }
+
+    return new Blob(byteArrays, { type: contentType });
+  };
+
   return (
     <div>
       <Box sx={{ flexGrow: 1 }}>
@@ -87,13 +127,13 @@ export default function BarApp() {
               className="Download"
               target="_blank"
               rel="noreferrer"
-              href={require(`../../../../../ADMIS_PDF/${val + cust_id}.pdf`)}
               download
             >
               <Button
                 className="button-download-ledger btn-download"
                 endIcon={<IconDownload />}
                 variant="contained"
+                onClick={() => getFile()}
               >
                 Download Ledger
               </Button>

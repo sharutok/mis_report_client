@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.13355708.css",
+    "main.js": "/static/js/main.9b5076d2.js",
+    "static/media/AWL_logo_new.png": "/static/media/AWL_logo_new.ac845e0d9c99d09c2aba.png",
+    "index.html": "/index.html",
+    "main.13355708.css.map": "/static/css/main.13355708.css.map",
+    "main.9b5076d2.js.map": "/static/js/main.9b5076d2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.13355708.css",
+    "static/js/main.9b5076d2.js"
+  ]
+}
