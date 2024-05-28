@@ -14,7 +14,6 @@ import { Line } from 'react-chartjs-2';
 import { ContextHelper } from '../HomePage';
 ChartJS.register(
     CategoryScale,
-    LinearScale,
     PointElement,
     LineElement,
     Title,

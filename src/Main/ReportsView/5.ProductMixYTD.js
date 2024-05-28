@@ -8,7 +8,7 @@ import ChartDataLabels from "chartjs-plugin-datalabels";
 import React, { useContext } from "react";
 import { Doughnut } from "react-chartjs-2";
 import { ContextHelper } from "../HomePage";
-ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend);
+ChartJS.register( ArcElement, Tooltip, Legend);
 
 export default function ProductMixYTD() {
   const { productMixYTD, productMixDiffMonth, setProductMixDiffMonth } =
