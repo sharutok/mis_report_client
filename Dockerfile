@@ -4,10 +4,10 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install && npm install -g serve
+RUN npm ci && npm install -g serve && npm audit fix
 
 COPY . .
 
 RUN npm run build
 
-CMD ["npm","run","start:prod"]
+CMD ["serve","-l","3060","-s","build"]

@@ -11,7 +11,7 @@ import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 import { useParams } from 'react-router-dom';
 import { httpApi } from '../../Side/Http';
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+ChartJS.register(CategoryScale, BarElement, Title, Tooltip, Legend);
 
 export default function Top5SelllingProducts() {
     const { cust_id, date_time_string } = useParams()

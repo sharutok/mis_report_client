@@ -11,7 +11,7 @@ import { Doughnut } from "react-chartjs-2";
 import { useParams } from "react-router-dom";
 import { convertStringToDate } from "../../Side/Misc";
 import { ContextHelper } from "../HomePage";
-ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend);
+ChartJS.register( ArcElement, Tooltip, Legend);
 
 export default function ProductMixCurrentMonth() {
   const { date_time_string } = useParams();
