@@ -1,14 +1,14 @@
 import React from 'react'
+import HoverOn from '../Side/HoverOn'
+import '../Styles/Reports.css'
 import SalesDataSet from './ReportsView/1.SalesDataSet'
 import TOI from './ReportsView/2.TOI'
 import Past12MonthSales from './ReportsView/3.Past12MonthSales'
-import ProductMixYTD from './ReportsView/5.ProductMixYTD'
 import ProductMixDataSet from './ReportsView/4.ProductMixDataSet'
+import ProductMixYTD from './ReportsView/5.ProductMixYTD'
 import ProductMixCurrentMonth from './ReportsView/6.ProductMixCurrentMonth'
 import PayablesDataSet from './ReportsView/7.PayablesDataSet'
-import '../Styles/Reports.css'
 import Top5SellingProducts from './ReportsView/8.Top5SelllingProducts'
-import HoverOn from '../Side/HoverOn'
 
 export default function Reports() {
     return (

@@ -1,18 +1,17 @@
-import React, { useContext } from 'react';
 import {
-    Chart as ChartJS,
     CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Title,
-    Tooltip,
+    Chart as ChartJS,
+    Filler,
     Legend,
-    Filler
+    LineElement,
+    PointElement,
+    Title,
+    Tooltip
 } from 'chart.js';
-import { Line } from 'react-chartjs-2';
-import { ContextHelper } from '../HomePage'
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import React, { useContext } from 'react';
+import { Line } from 'react-chartjs-2';
+import { ContextHelper } from '../HomePage';
 ChartJS.register(
     CategoryScale,
     LinearScale,

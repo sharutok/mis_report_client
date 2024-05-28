@@ -1,17 +1,17 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { Button, Box, TextField, Stack } from '@mui/material';
+import { Button, Stack, TextField } from '@mui/material';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import axios from 'axios';
-import { httpApi } from './Http';
+import bcrypt from 'bcryptjs';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { setCookies } from '../Side/ManageCookies'
-import bcrypt from 'bcryptjs'
-import { ContextHelper } from '../Main/HomePage'
 import Cookies from "universal-cookie";
+import { ContextHelper } from '../Main/HomePage';
+import { setCookies } from '../Side/ManageCookies';
+import { httpApi } from './Http';
 const cookies = new Cookies()
 
 export default function OTPDialogBox() {

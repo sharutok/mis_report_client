@@ -1,19 +1,16 @@
-import React, { useState, useEffect } from 'react'
-import {
-    Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    Title,
-    Tooltip,
-    Legend,
-} from 'chart.js';
-import { convertStringToDate } from '../../Side/Misc'
-import moment from 'moment';
-import { Bar } from 'react-chartjs-2';
 import axios from 'axios';
-import { httpApi } from '../../Side/Http';
+import {
+    BarElement,
+    CategoryScale,
+    Chart as ChartJS,
+    Legend,
+    Title,
+    Tooltip
+} from 'chart.js';
+import React, { useEffect, useState } from 'react';
+import { Bar } from 'react-chartjs-2';
 import { useParams } from 'react-router-dom';
+import { httpApi } from '../../Side/Http';
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 export default function Top5SelllingProducts() {

@@ -1,9 +1,9 @@
 import axios from 'axios'
+import moment from 'moment'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { httpApi } from './Http'
 import '../Styles/UserInfo.css'
-import moment from 'moment'
+import { httpApi } from './Http'
 function UserInfo() {
     const { cust_id, date_time_string } = useParams()
     const [user, setUser] = useState({

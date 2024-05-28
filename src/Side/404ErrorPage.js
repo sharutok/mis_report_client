@@ -1,4 +1,4 @@
-import { createStyles, Title, Text, Button, Container, Group } from '@mantine/core';
+import { Container, createStyles, Group, Title } from '@mantine/core';
 const useStyles = createStyles((theme) => ({
     root: {
         paddingTop: 80,

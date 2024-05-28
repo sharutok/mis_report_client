@@ -1,17 +1,16 @@
-import React, { useContext } from "react";
 import {
-  Chart as ChartJS,
-  RadialLinearScale,
   ArcElement,
-  Tooltip,
+  Chart as ChartJS,
   Legend,
+  Tooltip
 } from "chart.js";
-import { useParams } from "react-router-dom";
-import { Doughnut } from "react-chartjs-2";
+import ChartDataLabels from "chartjs-plugin-datalabels";
 import moment from "moment";
+import React, { useContext } from "react";
+import { Doughnut } from "react-chartjs-2";
+import { useParams } from "react-router-dom";
 import { convertStringToDate } from "../../Side/Misc";
 import { ContextHelper } from "../HomePage";
-import ChartDataLabels from "chartjs-plugin-datalabels";
 ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend);
 
 export default function ProductMixCurrentMonth() {
