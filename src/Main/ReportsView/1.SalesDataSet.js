@@ -1,12 +1,11 @@
-import React, { useEffect, useContext, useState } from 'react'
-import moment from 'moment'
-import { httpApi } from '../../Side/Http'
 import axios from "axios";
-import { ContextHelper } from '../HomePage';
-import { growthFormula, growthIcon, ReactQuery, y1, y2 } from '../../Side/Misc';
+import moment from 'moment';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import '../../Styles/SalesDataSet.css'
-import { convertStringToDate } from '../../Side/Misc'
+import { httpApi } from '../../Side/Http';
+import { convertStringToDate, growthFormula, growthIcon } from '../../Side/Misc';
+import '../../Styles/SalesDataSet.css';
+import { ContextHelper } from '../HomePage';
 import UpdatedSalesDataSet from './UpdatedSalesDataSet';
 
 export default function SalesDataSet() {

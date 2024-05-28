@@ -1,14 +1,13 @@
-import React, { useContext } from "react";
 import {
-  Chart as ChartJS,
-  RadialLinearScale,
   ArcElement,
-  Tooltip,
+  Chart as ChartJS,
   Legend,
+  Tooltip
 } from "chart.js";
+import ChartDataLabels from "chartjs-plugin-datalabels";
+import React, { useContext } from "react";
 import { Doughnut } from "react-chartjs-2";
 import { ContextHelper } from "../HomePage";
-import ChartDataLabels from "chartjs-plugin-datalabels";
 ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend);
 
 export default function ProductMixYTD() {

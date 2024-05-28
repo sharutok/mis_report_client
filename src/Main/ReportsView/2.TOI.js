@@ -1,18 +1,17 @@
-import React, { useContext, } from 'react'
 import {
-    Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
     BarElement,
+    CategoryScale,
+    Chart as ChartJS,
+    Legend,
+    LinearScale,
     Title,
     Tooltip,
-    Legend,
 } from 'chart.js';
-import { Bar, defaults } from 'react-chartjs-2';
-import { ContextHelper } from '../HomePage';
-import moment from 'moment';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-import { ReactQuery } from '../../Side/Misc';
+import moment from 'moment';
+import React, { useContext, } from 'react';
+import { Bar } from 'react-chartjs-2';
+import { ContextHelper } from '../HomePage';
 
 
 export default function TOI() {

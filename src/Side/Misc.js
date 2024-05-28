@@ -1,7 +1,7 @@
-import { IconArrowUpRight, IconArrowDownRight, IconArrowRight } from '@tabler/icons';
-import moment from 'moment';
-import { useQuery } from '@tanstack/react-query'
+import { IconArrowDownRight, IconArrowRight, IconArrowUpRight } from '@tabler/icons';
+import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
+import moment from 'moment';
 export const growthFormula = (a, b) => {
 
     const diff = a - b
